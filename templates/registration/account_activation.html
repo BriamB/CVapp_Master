@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+  {% load static %}
+  {% block content %}
+  <!-- Aviso de envío correo para la autenticación -->
+  <div class="container">
+    <h4 class="m-5">Estimado {{ username }}! Le hemos enviado un correo electrónico,
+      para que finalice el proceso de registro</h4>
+  </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+  {% load static %}
+  {% block content %}
+
+<!-- Vista de las hojas de vida -->
+<div class="col-sm-12">
+
+  <div class="form-row">
+    <div class="form-group col-sm-10">
+      <h3>Hojas de Vida</h3>
+    </div>
+    <div class="form-group col-sm-2">
+      <a href="{% url 'crear' %}" class="btn-large red ">
+          <button type="button" class="btn btn-outline-secondary btn-block">CREATE</button>
+      </a>
+    </div>
+
+  </div>
+
+    <div class="col-sm-12">
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">identification card</th>
+                <th scope="col">birth date</th>
+                <th scope="col">Gender</th>
+                <th scope="col">marital status</th>
+                <th scope="col">Phone</th>
+                <th scope="col">City</th>
+                <th scope="col">edit</th>
+                <th scope="col">visibility</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- sentencia para traer los datos de la base de datos -->
+              {% for cv in object_list %}
+              <tr>
+                <td>{{ cv.id }}</td>
+                <td>{{ cv.nombre }}</td>
+                <td>{{ cv.apellido }}</td>
+                <td>{{ cv.cedula }}</td>
+                <td>{{ cv.fecha_nacimiento }}</td>
+                <td>{{ cv.genero }}</td>
+                <td>{{ cv.estado_civil }}</td>
+                <td>{{ cv.telefono }}</td>
+                <td>{{ cv.municipio }}</td>
+                <td>
+                  <!-- Botón para editar las hojas de vida- -->
+                    <a href="{% url 'editar' cv.id %}">
+                      <button type="button" class="btn btn-outline-success">EDIT</button>
+                    </a>
+                </td>
+                <td>
+                  <!--  Botón ver los detalles de la hoja de vida-->
+                    <a href="{% url 'detail' cv.id %}">
+                        <button type="button" class="btn btn-outline-info">DETAIL</button>
+                    </a>
+                </td>
+
+              </tr>
+
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

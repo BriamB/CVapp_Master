@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  <div class="jumbotron">
+
+    {% if object_list.count == 0 %}
+      <div class="alert alert-secondary mt-2" role="alert">
+        No hay resultados para la búsquedaa: <b>"{{ search }}"</b>
+      </div>
+    {% endif %}
+
+    {% for carga in object_list %}
+      <div class="alert alert-primary mt-2" role="alert">
+        Monstrando {{ object_list.count }} resultado, para la búsqueda: <b>"{{ search }}"</b>
+      </div>
+
+        <div class="card-body">
+          <li class="list-group-item active">Detalle Hoja de vida de {{carga.nombre}} {{carga.apellido}}</li>
+          <li class="list-group-item">Name: {{carga.nombre}}</li>
+          <li class="list-group-item">Last Name: {{carga.apellido}}</li>
+          <li class="list-group-item">ID Type: {{carga.tipo_identificacion}}</li>
+          <li class="list-group-item">Identification card: {{carga.cedula}}</li>
+          <li class="list-group-item">Birth date: {{carga.fecha_nacimiento}}</li>
+          <li class="list-group-item">Gender status: {{carga.genero}}</li>
+          <li class="list-group-item">Martial: {{carga.estado_civil}}</li>
+          <li class="list-group-item">Phone: {{carga.telefono}}</li>
+          <li class="list-group-item">City: {{carga.municipio}}</li>
+          <li class="list-group-item">Direction: {{carga.direccion}}</li>
+          <li class="list-group-item">Education Center: {{carga.Centro_educativo}}</li>
+          <li class="list-group-item">Education Level: {{carga.Nivel_educativo}}</li>
+          <li class="list-group-item">Study Status: {{carga.Estado_estudio}}</li>
+          <li class="list-group-item">Position: {{carga.cargo}}</li>
+          <li class="list-group-item">End Company: {{carga.Empresa}}</li>
+          <li class="list-group-item">Start Period: {{carga.Periodo_inicio}}</li>
+          <li class="list-group-item">End Period: {{carga.Periodo_fin}}</li>
+          <li class="list-group-item">Principal Functions: {{carga.Funciones}}</li>
+          <li class="list-group-item">Language: {{carga.idioma}}</li>
+          <li class="list-group-item">Level Language: {{carga.nivel}}</li>
+          <li class="list-group-item">Work Area: {{carga.area}}</li>
+          <li class="list-group-item">Salary: {{carga.salario}}</li>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+
+{% endblock  %}
