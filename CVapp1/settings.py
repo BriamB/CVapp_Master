@@ -137,5 +137,5 @@ LOGOUT_REDIRECT_URL = '/'
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'registro.cvapp@gmail.com'
-EMAIL_HOST_PASSWORD = 'Marzo14191'
+EMAIL_HOST_PASSWORD = '****'
 EMAIL_PORT = 465
